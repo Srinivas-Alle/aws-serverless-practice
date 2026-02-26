@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../src/index.ts"],
-  "sourcesContent": ["export async function handler(event: any) {\n  return {\n    statusCode: 200,\n    headers: {\n      \"Content-Type\": \"application/json\",\n    },\n    body: JSON.stringify({\n      message: \"Hello from SST API!\",\n      path: event?.rawPath ?? event?.path ?? \"/\",\n    }),\n  };\n}\n\n"],
-  "mappings": ";;;;;;;;;;AAAA,eAAsB,QAAQ,OAAY;AACxC,SAAO;AAAA,IACL,YAAY;AAAA,IACZ,SAAS;AAAA,MACP,gBAAgB;AAAA,IAClB;AAAA,IACA,MAAM,KAAK,UAAU;AAAA,MACnB,SAAS;AAAA,MACT,MAAM,OAAO,WAAW,OAAO,QAAQ;AAAA,IACzC,CAAC;AAAA,EACH;AACF;AAXsB;",
-  "names": []
-}

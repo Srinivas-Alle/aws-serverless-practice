@@ -1,1 +1,10 @@
 node_modules
+.sst/
+.sst/*.*
+.sst/artifacts/MyApiRouteDnvusbHandler-dev/resource.enc
+.sst/artifacts/MyApiRouteDnvusbHandler-dev/resource.enc
+.sst/log/pulumi.log
+.sst/esbuild.json
+.sst/artifacts/MyApiRouteDnvusbHandler-dev/resource.enc
+.sst/log/pulumi.log
+.sst/esbuild.json
