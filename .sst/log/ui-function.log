@@ -1,0 +1,5 @@
+time=2026-02-26T16:25:46.066+05:30 level=INFO msg="checking for pulumi" path="/Users/srinivasalle/Library/Application Support/sst/bin/pulumi"
+time=2026-02-26T16:25:46.829+05:30 level=INFO msg="checking for bun" path="/Users/srinivasalle/Library/Application Support/sst/bin/bun"
+time=2026-02-26T16:25:46.848+05:30 level=INFO msg="initializing ui" isTTY=true
+time=2026-02-26T16:25:46.849+05:30 level=INFO msg="initializing ui" isTTY=true
+time=2026-02-26T16:25:46.849+05:30 level=INFO msg="initialized ui"

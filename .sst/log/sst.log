@@ -1,0 +1,122 @@
+time=2026-02-26T16:25:44.970+05:30 level=INFO msg="checking for pulumi" path="/Users/srinivasalle/Library/Application Support/sst/bin/pulumi"
+time=2026-02-26T16:25:45.827+05:30 level=INFO msg="checking for bun" path="/Users/srinivasalle/Library/Application Support/sst/bin/bun"
+time=2026-02-26T16:25:45.871+05:30 level=INFO msg="initializing project" version=3.17.38
+time=2026-02-26T16:25:45.872+05:30 level=INFO msg="esbuild building" out=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.sst/platform/sst.config.1772103345872.mjs
+time=2026-02-26T16:25:45.876+05:30 level=INFO msg="esbuild built" outfile=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.sst/platform/sst.config.1772103345872.mjs
+time=2026-02-26T16:25:45.877+05:30 level=INFO msg="evaluating config"
+time=2026-02-26T16:25:45.905+05:30 level=INFO msg="config evaluated"
+time=2026-02-26T16:25:45.907+05:30 level=INFO msg="checking platform"
+time=2026-02-26T16:25:45.907+05:30 level=INFO msg="loading home"
+time=2026-02-26T16:25:45.908+05:30 level=INFO msg="aws credentials found" region=ap-south-1 profile=""
+time=2026-02-26T16:25:45.908+05:30 level=INFO msg="fetching bootstrap"
+time=2026-02-26T16:25:46.005+05:30 level=INFO msg="found existing bootstrap" data="{\"version\":5,\"asset\":\"sst-asset-axvznuvnovwf\",\"assetEcrRegistryId\":\"114363195820\",\"assetEcrUrl\":\"114363195820.dkr.ecr.ap-south-1.amazonaws.com/sst-asset\",\"state\":\"sst-state-axvznuvnovwf\",\"appsyncHttp\":\"\",\"appsyncRealtime\":\"\"}"
+time=2026-02-26T16:25:46.005+05:30 level=INFO msg="loaded config" app=my-first-sst-v3-app stage=srinivasalle
+time=2026-02-26T16:25:46.005+05:30 level=INFO msg=mosaic project=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app
+time=2026-02-26T16:25:46.005+05:30 level=INFO msg="starting watcher" service=watcher root=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app
+time=2026-02-26T16:25:46.006+05:30 level=INFO msg="server port assigned" port=13557
+time=2026-02-26T16:25:46.006+05:30 level=INFO msg=starting service=dev
+time=2026-02-26T16:25:46.006+05:30 level=INFO msg="getting endpoint"
+time=2026-02-26T16:25:46.006+05:30 level=INFO msg=starting service=server
+time=2026-02-26T16:25:46.006+05:30 level=INFO msg=starting service=deployer
+time=2026-02-26T16:25:46.006+05:30 level=INFO msg="waiting for trigger" service=deployer
+time=2026-02-26T16:25:46.006+05:30 level=INFO msg=server service=server addr=0.0.0.0:13557
+time=2026-02-26T16:25:46.007+05:30 level=INFO msg=watching service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app
+time=2026-02-26T16:25:46.007+05:30 level=INFO msg=watching service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/src
+time=2026-02-26T16:25:46.008+05:30 level=INFO msg=resize
+time=2026-02-26T16:25:46.231+05:30 level=INFO msg="found appsync" rest=zf7xyqvs3becnf4cwppghfiwom.appsync-api.ap-south-1.amazonaws.com realtime=zf7xyqvs3becnf4cwppghfiwom.appsync-realtime-api.ap-south-1.amazonaws.com
+time=2026-02-26T16:25:46.231+05:30 level=INFO msg="checking if appsync is ready"
+time=2026-02-26T16:25:46.352+05:30 level=INFO msg="INFO connecting service=appsync.connection"
+time=2026-02-26T16:25:46.588+05:30 level=INFO msg="INFO connect message service=appsync.connection msg=\"map[connectionTimeoutMs:300000 type:connection_ack]\""
+time=2026-02-26T16:25:46.588+05:30 level=INFO msg="subscribing to" prefix=/sst/my-first-sst-v3-app/srinivasalle/in
+time=2026-02-26T16:25:46.589+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:25:46.844+05:30 level=INFO msg="INFO msg service=appsync.connection type=subscribe_success id=019c9997299d54a467b93385"
+time=2026-02-26T16:25:46.844+05:30 level=INFO msg="INFO subscribed service=appsync.connection channel=/sst/my-first-sst-v3-app/srinivasalle/in id=019c9997299d54a467b93385"
+time=2026-02-26T16:25:46.844+05:30 level=INFO msg=starting service=aws.task
+time=2026-02-26T16:25:46.847+05:30 level=INFO msg=subscribed service=dev addr=[::1]:51448
+time=2026-02-26T16:25:46.849+05:30 level=INFO msg=subscribed service=dev addr=[::1]:51451
+time=2026-02-26T16:25:46.849+05:30 level=INFO msg="deploy requested" service=dev
+time=2026-02-26T16:25:46.849+05:30 level=INFO msg=deploying service=deployer
+time=2026-02-26T16:25:46.849+05:30 level=INFO msg="running stack command" service=project.run cmd=deploy
+time=2026-02-26T16:25:46.849+05:30 level=INFO msg="INFO locking app=my-first-sst-v3-app stage=srinivasalle"
+time=2026-02-26T16:25:46.849+05:30 level=INFO msg="INFO getting data key=lock app=my-first-sst-v3-app stage=srinivasalle"
+time=2026-02-26T16:25:47.045+05:30 level=INFO msg="INFO putting update app=my-first-sst-v3-app stage=srinivasalle"
+time=2026-02-26T16:25:47.146+05:30 level=INFO msg="INFO getting passphrase app=my-first-sst-v3-app stage=srinivasalle"
+time=2026-02-26T16:25:47.400+05:30 level=INFO msg="INFO pulling state app=my-first-sst-v3-app stage=srinivasalle out=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.sst/pulumi/fe636668d55ea0fd890846a6/.pulumi/stacks/my-first-sst-v3-app/srinivasalle.json"
+time=2026-02-26T16:25:47.724+05:30 level=INFO msg="got previous deployment" service=project.run updateID=fe636668d55ea0fd890846a6
+time=2026-02-26T16:25:47.724+05:30 level=INFO msg="esbuild building" out=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.sst/platform/sst.config.1772103347397.mjs
+time=2026-02-26T16:25:47.760+05:30 level=INFO msg="esbuild built" outfile=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.sst/platform/sst.config.1772103347397.mjs
+time=2026-02-26T16:25:47.765+05:30 level=INFO msg="built sst.config.ts" service=project.run updateID=fe636668d55ea0fd890846a6 to=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.sst/platform/sst.config.1772103347397.mjs
+time=2026-02-26T16:25:47.767+05:30 level=INFO msg="tracked files" service=project.run updateID=fe636668d55ea0fd890846a6
+time=2026-02-26T16:25:47.767+05:30 level=INFO msg="INFO getting data key=secret app=my-first-sst-v3-app stage=_fallback"
+time=2026-02-26T16:25:47.767+05:30 level=INFO msg="INFO getting data key=secret app=my-first-sst-v3-app stage=srinivasalle"
+time=2026-02-26T16:25:47.860+05:30 level=INFO msg="starting pulumi" service=project.run updateID=fe636668d55ea0fd890846a6 args="[/Users/srinivasalle/Library/Application Support/sst/bin/pulumi up --yes -f --stack organization/my-first-sst-v3-app/srinivasalle --non-interactive --event-log /Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.sst/pulumi/fe636668d55ea0fd890846a6/eventlog.json --config aws:region=ap-south-1 --config aws:defaultTags={\"tags\":{\"sst:app\":\"my-first-sst-v3-app\",\"sst:stage\":\"srinivasalle\"}}]"
+time=2026-02-26T16:25:51.796+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:25:51.858+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:25:51.858+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:25:51.859+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:25:52.059+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:25:52.100+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:25:59.469+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:25:59.630+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:25:59.695+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:25:59.995+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:26:00.015+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:26:00.074+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:00.143+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:26:00.531+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:26:00.594+05:30 level=INFO msg="rpc request" method=POST url=/rpc
+time=2026-02-26T16:26:05.279+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:07.489+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:09.743+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:10.322+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:12.018+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:16.555+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:16.802+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:17.061+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:17.363+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:18.168+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:18.366+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:18.583+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:18.782+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:18.830+05:30 level=INFO msg="pulumi exited" service=project.run updateID=fe636668d55ea0fd890846a6 err=<nil>
+time=2026-02-26T16:26:18.830+05:30 level=INFO msg="eof and exited" service=project.run updateID=fe636668d55ea0fd890846a6 eofs=0
+time=2026-02-26T16:26:18.830+05:30 level=INFO msg="eof and exited" service=project.run updateID=fe636668d55ea0fd890846a6 eofs=1
+time=2026-02-26T16:26:18.830+05:30 level=INFO msg="breaking out of tail loop" service=project.run updateID=fe636668d55ea0fd890846a6
+time=2026-02-26T16:26:18.830+05:30 level=INFO msg="parsing state" service=project.run updateID=fe636668d55ea0fd890846a6
+time=2026-02-26T16:26:18.944+05:30 level=INFO msg="generating types" root=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app
+time=2026-02-26T16:26:18.945+05:30 level=INFO msg="ignoring file event" service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/sst-env.d.ts op=CHMOD
+time=2026-02-26T16:26:18.946+05:30 level=INFO msg="file event" service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/sst-env.d.ts op=WRITE
+time=2026-02-26T16:26:18.946+05:30 level=INFO msg="file event" service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/sst-env.d.ts op=WRITE
+time=2026-02-26T16:26:18.946+05:30 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/sst-env.d.ts
+time=2026-02-26T16:26:18.946+05:30 level=INFO msg="file event" service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/sst-env.d.ts op=WRITE
+time=2026-02-26T16:26:18.946+05:30 level=INFO msg="canceling partial" service=project.run updateID=fe636668d55ea0fd890846a6
+time=2026-02-26T16:26:18.946+05:30 level=INFO msg="waiting for partial to exit" service=project.run updateID=fe636668d55ea0fd890846a6
+time=2026-02-26T16:26:18.953+05:30 level=INFO msg="INFO pushing snapshot updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:18.953+05:30 level=INFO msg="INFO pushing partial state updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:18.953+05:30 level=INFO msg="INFO pushing eventlog updateID=fe636668d55ea0fd890846a6"
+time=2026-02-26T16:26:19.156+05:30 level=INFO msg="INFO putting update app=my-first-sst-v3-app stage=srinivasalle"
+time=2026-02-26T16:26:19.249+05:30 level=INFO msg="done running stack command" service=project.run updateID=fe636668d55ea0fd890846a6 resources=39
+time=2026-02-26T16:26:19.261+05:30 level=INFO msg="INFO unlocking app=my-first-sst-v3-app stage=srinivasalle"
+time=2026-02-26T16:26:19.360+05:30 level=INFO msg="waiting for trigger" service=deployer
+time=2026-02-26T16:26:19.360+05:30 level=INFO msg="build hash" service=deployer hash=ywm7W5BevP8
+time=2026-02-26T16:26:19.360+05:30 level=INFO msg="waiting for trigger" service=deployer
+time=2026-02-26T16:26:19.360+05:30 level=INFO msg="waiting for trigger" service=deployer
+time=2026-02-26T16:26:46.569+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:27:46.569+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:28:46.568+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:29:46.569+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:30:46.571+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:31:04.609+05:30 level=INFO msg="file event" service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.git op=CREATE
+time=2026-02-26T16:31:04.609+05:30 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.git
+time=2026-02-26T16:31:04.609+05:30 level=INFO msg="waiting for trigger" service=deployer
+time=2026-02-26T16:31:26.993+05:30 level=INFO msg="file event" service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.gitignore op=CREATE
+time=2026-02-26T16:31:26.994+05:30 level=INFO msg="waiting for trigger" service=deployer
+time=2026-02-26T16:31:26.994+05:30 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.gitignore
+time=2026-02-26T16:31:27.019+05:30 level=INFO msg="ignoring file event" service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.gitignore op=CHMOD
+time=2026-02-26T16:31:27.019+05:30 level=INFO msg="file event" service=watcher path=/Users/srinivasalle/Desktop/work/workspace/aws-playground/my-sst-app/my-sst-app/.gitignore op=WRITE
+time=2026-02-26T16:31:46.572+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:32:46.568+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:33:46.576+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:34:46.636+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:35:46.568+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2026-02-26T16:36:46.582+05:30 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"

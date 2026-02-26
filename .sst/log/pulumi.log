@@ -1,0 +1,77 @@
+Updating (srinivasalle):
+
+    pulumi:pulumi:Stack my-first-sst-v3-app-srinivasalle  warning: Attempting to deploy or update resources with 1 pending operations from previous deployment.
+@ updating....
+    pulumi:pulumi:Stack my-first-sst-v3-app-srinivasalle running warning: Attempting to deploy or update resources with 1 pending operations from previous deployment.
+@ updating.....
+ +  aws:dynamodb:Table UsersTableTable creating (0s) 
+@ updating...........
+ +  aws:dynamodb:Table UsersTableTable created (7s) 
+ +  sst:sst:LinkRef UsersTableLinkRef creating (0s) 
+ ~  sst:aws:ApiGatewayV2 MyApi updating (0s) [diff: +transform]
+ +  sst:aws:ApiGatewayV2LambdaRoute MyApiRouteOstmso creating (0s) 
+ +  sst:aws:ApiGatewayV2LambdaRoute MyApiRouteVxzfba creating (0s) 
+ ~  sst:aws:ApiGatewayV2LambdaRoute MyApiRouteDnvusb updating (0s) [diff: +handlerTransform]
+ +  sst:aws:Function MyApiRouteOstmsoHandler creating (0s) 
+ +  sst:aws:Function MyApiRouteVxzfbaHandler creating (0s) 
+ ~  sst:aws:Function MyApiRouteDnvusbHandler updating (0s) [diff: ~link]
+ +  aws:cloudwatch:LogGroup MyApiRouteOstmsoHandlerLogGroup creating (0s) 
+ +  aws:iam:Role MyApiRouteOstmsoHandlerRole creating (0s) 
+ +  aws:iam:Role MyApiRouteVxzfbaHandlerRole creating (0s) 
+ +  aws:cloudwatch:LogGroup MyApiRouteVxzfbaHandlerLogGroup creating (0s) 
+ ~  aws:iam:Role MyApiRouteDnvusbHandlerRole updating (0s) [diff: ~inlinePolicies]
+ +  aws:cloudwatch:LogGroup MyApiRouteVxzfbaHandlerLogGroup created (0.39s) 
+ +  aws:cloudwatch:LogGroup MyApiRouteOstmsoHandlerLogGroup created (0.41s) 
+@ updating....
+ +  aws:s3:BucketObjectv2 MyApiRouteVxzfbaHandlerCode creating (0s) 
+ +  aws:s3:BucketObjectv2 MyApiRouteOstmsoHandlerCode creating (0s) 
+@ updating.........
+ ~  aws:iam:Role MyApiRouteDnvusbHandlerRole updated (7s) [diff: ~inlinePolicies]
+@ updating....
+ +  aws:iam:Role MyApiRouteVxzfbaHandlerRole created (8s) 
+ +  aws:iam:Role MyApiRouteOstmsoHandlerRole created (8s) 
+@ updating.....
+ +  aws:s3:BucketObjectv2 MyApiRouteVxzfbaHandlerCode created (9s) 
+ +  aws:lambda:Function MyApiRouteVxzfbaHandlerFunction creating (0s) 
+@ updating.....
+ +  aws:s3:BucketObjectv2 MyApiRouteOstmsoHandlerCode created (11s) 
+ +  aws:lambda:Function MyApiRouteOstmsoHandlerFunction creating (0s) 
+@ updating........
+ +  aws:lambda:Function MyApiRouteVxzfbaHandlerFunction created (6s) 
+ +  aws:lambda:Permission MyApiRouteVxzfbaPermissions creating (0s) 
+ +  aws:lambda:Permission MyApiRouteVxzfbaPermissions created (0.13s) 
+ +  aws:apigatewayv2:Integration MyApiRouteVxzfbaIntegration creating (0s) 
+ +  aws:apigatewayv2:Integration MyApiRouteVxzfbaIntegration created (0.32s) 
+ +  aws:apigatewayv2:Route MyApiRouteVxzfbaRoute creating (0s) 
+@ updating....
+ +  aws:apigatewayv2:Route MyApiRouteVxzfbaRoute created (0.25s) 
+ +  aws:lambda:Function MyApiRouteOstmsoHandlerFunction created (6s) 
+ +  aws:lambda:Permission MyApiRouteOstmsoPermissions creating (0s) 
+@ updating....
+ +  aws:lambda:Permission MyApiRouteOstmsoPermissions created (0.13s) 
+ +  aws:apigatewayv2:Integration MyApiRouteOstmsoIntegration creating (0s) 
+ +  aws:apigatewayv2:Integration MyApiRouteOstmsoIntegration created (0.21s) 
+ +  aws:apigatewayv2:Route MyApiRouteOstmsoRoute creating (0s) 
+ +  aws:apigatewayv2:Route MyApiRouteOstmsoRoute created (0.21s) 
+    pulumi:pulumi:Stack my-first-sst-v3-app-srinivasalle  1 warning
+Diagnostics:
+  pulumi:pulumi:Stack (my-first-sst-v3-app-srinivasalle):
+    warning: Attempting to deploy or update resources with 1 pending operations from previous deployment.
+      * urn:pulumi:srinivasalle::my-first-sst-v3-app::sst:aws:Dynamo$aws:dynamodb/table:Table::UsersTableTable, interrupted while creating
+    These resources are in an unknown state because the Pulumi CLI was interrupted while waiting for changes to these resources to complete. You should confirm whether or not the operations listed completed successfully by checking the state of the appropriate provider. For example, if you are using AWS, you can confirm using the AWS Console.
+    
+    Once you have confirmed the status of the interrupted operations, you can repair your stack using `pulumi refresh` which will refresh the state from the provider you are using and clear the pending operations if there are any.
+    
+    Note that `pulumi refresh` will need to be run interactively to clear pending CREATE operations.
+
+Outputs:
+    _protect: false
+    apiUrl  : "https://diio00z0tj.execute-api.ap-south-1.amazonaws.com"
+
+Resources:
+    + 20 created
+    ~ 4 updated
+    24 changes. 13 unchanged
+
+Duration: 30s
+
