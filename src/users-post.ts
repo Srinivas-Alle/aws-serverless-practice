@@ -8,10 +8,29 @@ export async function handler(event: any) {
   try {
     const tableName = Resource.UsersTable.name;
 
-    const body = event?.body ? JSON.parse(event.body) : {};
-    const { userId, name, email, age } = body;
+    const claims = event?.requestContext?.authorizer?.jwt?.claims;
+    const userId =
+      claims?.sub ??
+      claims?.username ??
+      claims?.["cognito:username"] ??
+      null;
 
-    if (!userId || !name || !email || typeof age !== "number") {
+    if (!userId) {
+      return {
+        statusCode: 401,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: "Unauthorized. Missing or invalid JWT.",
+        }),
+      };
+    }
+
+    const body = event?.body ? JSON.parse(event.body) : {};
+    const { name, email, age } = body;
+
+    if (!name || !email || typeof age !== "number") {
       return {
         statusCode: 400,
         headers: {
@@ -19,7 +38,7 @@ export async function handler(event: any) {
         },
         body: JSON.stringify({
           message:
-            "Invalid request body. Expecting userId, name, email, and numeric age.",
+            "Invalid request body. Expecting name, email, and numeric age.",
         }),
       };
     }

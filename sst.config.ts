@@ -4,6 +4,10 @@ declare const $config: (config: {
   }) => unknown;
 
 declare const sst: any;
+declare const $interpolate: (
+  literals: TemplateStringsArray,
+  ...placeholders: unknown[]
+) => unknown;
 
 export default $config({
   app(input) {
@@ -19,6 +23,24 @@ export default $config({
   },
 
   async run() {
+    const userPool = new sst.aws.CognitoUserPool("UserPool", {
+      signInAlias: {
+        email: true,
+      },
+    });
+
+    const userPoolClient = userPool.addClient("UserPoolClient", {
+      transform: {
+        client: (args: any) => {
+          args.explicitAuthFlows = [
+            "ALLOW_USER_PASSWORD_AUTH",
+            "ALLOW_USER_SRP_AUTH",
+            "ALLOW_REFRESH_TOKEN_AUTH",
+          ];
+        },
+      },
+    });
+
     const usersTable = new sst.aws.Dynamo("UsersTable", {
       fields: {
         userId: "string",
@@ -30,9 +52,17 @@ export default $config({
       transform: {
         route: {
           handler: {
-            link: [usersTable],
+            link: [usersTable, userPoolClient],
           },
         },
+      },
+    });
+
+    const userPoolAuthorizer = api.addAuthorizer({
+      name: "userPoolJwt",
+      jwt: {
+        audiences: [userPoolClient.id],
+        issuer: $interpolate`https://cognito-idp.ap-south-1.amazonaws.com/${userPool.id}`,
       },
     });
 
@@ -46,10 +76,25 @@ export default $config({
 
     api.route("POST /users", {
       handler: "src/users-post.handler",
+      auth: {
+        jwt: {
+          authorizer: userPoolAuthorizer.id,
+        },
+      },
+    });
+
+    api.route("POST /auth/signup", {
+      handler: "src/auth-signup.handler",
+    });
+
+    api.route("POST /auth/signin", {
+      handler: "src/auth-signin.handler",
     });
 
     return {
       apiUrl: api.url,
+      userPoolId: userPool.id,
+      userPoolClientId: userPoolClient.id,
     };
   },
 });
