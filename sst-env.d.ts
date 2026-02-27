@@ -6,6 +6,14 @@
 
 declare module "sst" {
   export interface Resource {
+    "LoginDLQ": {
+      "type": "sst.aws.Queue"
+      "url": string
+    }
+    "LoginQueue": {
+      "type": "sst.aws.Queue"
+      "url": string
+    }
     "MyApi": {
       "type": "sst.aws.ApiGatewayV2"
       "url": string

@@ -43,6 +43,15 @@ export default $config({
 
     const userEventsBus = new sst.aws.Bus("UserEventsBus");
 
+    const loginDlq = new sst.aws.Queue("LoginDLQ");
+
+    const loginQueue = new sst.aws.Queue("LoginQueue", {
+      dlq: {
+        queue: loginDlq.arn,
+        retry: 3,
+      },
+    });
+
     const usersTable = new sst.aws.Dynamo("UsersTable", {
       fields: {
         userId: "string",
@@ -54,7 +63,7 @@ export default $config({
       transform: {
         route: {
           handler: {
-            link: [usersTable, userPoolClient, userEventsBus, userPool],
+            link: [usersTable, userPoolClient, userEventsBus, userPool, loginQueue],
           },
         },
       },
@@ -92,6 +101,10 @@ export default $config({
     api.route("POST /auth/signin", {
       handler: "src/auth-signin.handler",
     });
+
+    loginQueue.subscribe("src/login-event-worker.handler");
+
+    loginDlq.subscribe("src/dlq-subscriber.handler");
 
     userEventsBus.subscribe(
       "UserCreatedSubscriber",

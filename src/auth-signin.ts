@@ -2,11 +2,14 @@ import {
   CognitoIdentityProviderClient,
   InitiateAuthCommand,
 } from "@aws-sdk/client-cognito-identity-provider";
+import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
 import { Resource } from "sst";
 
 const cognito = new CognitoIdentityProviderClient({
   region: process.env.AWS_REGION ?? "ap-south-1",
 });
+
+const sqs = new SQSClient({});
 
 export async function handler(event: any) {
   try {
@@ -28,7 +31,7 @@ export async function handler(event: any) {
     const result = await cognito.send(
       new InitiateAuthCommand({
         AuthFlow: "USER_PASSWORD_AUTH",
-        ClientId: Resource.UserPoolClient.id,
+        ClientId: (Resource as any).UserPoolClient.id as string,
         AuthParameters: {
           USERNAME: email,
           PASSWORD: password,
@@ -49,6 +52,30 @@ export async function handler(event: any) {
         }),
       };
     }
+
+    const now = new Date().toISOString();
+
+    // Fire-and-forget login event to SQS
+    (async () => {
+      try {
+        const eventBody = {
+          eventName: "login",
+          userDetails: {
+            email,
+          },
+          timestamp: now,
+        };
+
+        await sqs.send(
+          new SendMessageCommand({
+            QueueUrl: (Resource as any).LoginQueue.url as string,
+            MessageBody: JSON.stringify(eventBody),
+          })
+        );
+      } catch (sendError) {
+        console.error("Failed to send login event to SQS", sendError);
+      }
+    })();
 
     return {
       statusCode: 200,
