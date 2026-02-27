@@ -1,19 +1,47 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
+import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge";
+import { CognitoJwtVerifier } from "aws-jwt-verify";
 import { Resource } from "sst";
 
 const dynamo = DynamoDBDocumentClient.from(new DynamoDBClient({}));
+const eventBridge = new EventBridgeClient({});
+
+const jwtVerifier = CognitoJwtVerifier.create({
+  userPoolId: Resource.UserPool.id,
+  tokenUse: "id",
+  clientId: Resource.UserPoolClient.id,
+});
 
 export async function handler(event: any) {
   try {
     const tableName = Resource.UsersTable.name;
 
-    const claims = event?.requestContext?.authorizer?.jwt?.claims;
-    const userId =
-      claims?.sub ??
-      claims?.username ??
-      claims?.["cognito:username"] ??
+    let userId: string | null =
+      event?.requestContext?.authorizer?.jwt?.claims?.sub ??
+      event?.requestContext?.authorizer?.jwt?.claims?.username ??
+      event?.requestContext?.authorizer?.jwt?.claims?.["cognito:username"] ??
       null;
+
+    if (!userId) {
+      const authHeader =
+        event?.headers?.Authorization ?? event?.headers?.authorization;
+      const token = authHeader?.startsWith("Bearer ")
+        ? authHeader.slice(7)
+        : authHeader;
+      if (token) {
+        try {
+          const payload = await jwtVerifier.verify(token);
+          userId =
+            payload.sub ??
+            (payload as any).username ??
+            (payload as any)["cognito:username"] ??
+            null;
+        } catch {
+          /* token invalid */
+        }
+      }
+    }
 
     if (!userId) {
       return {
@@ -54,6 +82,28 @@ export async function handler(event: any) {
         },
       })
     );
+
+    eventBridge
+      .send(
+        new PutEventsCommand({
+          Entries: [
+            {
+              EventBusName: Resource.UserEventsBus.name,
+              Source: "users",
+              DetailType: "UserCreated",
+              Detail: JSON.stringify({
+                userId,
+                name,
+                email,
+                age,
+              }),
+            },
+          ],
+        })
+      )
+      .catch((error) => {
+        console.error("Failed to publish UserCreated event", error);
+      });
 
     return {
       statusCode: 201,

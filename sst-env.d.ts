@@ -10,6 +10,11 @@ declare module "sst" {
       "type": "sst.aws.ApiGatewayV2"
       "url": string
     }
+    "UserEventsBus": {
+      "arn": string
+      "name": string
+      "type": "sst.aws.Bus"
+    }
     "UserPool": {
       "id": string
       "type": "sst.aws.CognitoUserPool"

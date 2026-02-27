@@ -41,6 +41,8 @@ export default $config({
       },
     });
 
+    const userEventsBus = new sst.aws.Bus("UserEventsBus");
+
     const usersTable = new sst.aws.Dynamo("UsersTable", {
       fields: {
         userId: "string",
@@ -52,7 +54,7 @@ export default $config({
       transform: {
         route: {
           handler: {
-            link: [usersTable, userPoolClient],
+            link: [usersTable, userPoolClient, userEventsBus, userPool],
           },
         },
       },
@@ -90,6 +92,17 @@ export default $config({
     api.route("POST /auth/signin", {
       handler: "src/auth-signin.handler",
     });
+
+    userEventsBus.subscribe(
+      "UserCreatedSubscriber",
+      "src/user-created-subscriber.handler",
+      {
+        pattern: {
+          source: ["users"],
+          detailType: ["UserCreated"],
+        },
+      }
+    );
 
     return {
       apiUrl: api.url,
